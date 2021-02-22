@@ -19,7 +19,7 @@ Too_much:
 		so now we have to find with what values our characters in input string are getting compared with
 		to do this, we perform the following operations
 
-		```$ echo "disas main" | gdb ./rev | grep "call" |  tr -s " " | cut -d" " -f5``` > file```
+		``` $ echo "disas main" | gdb ./rev | grep "call" |  tr -s " " | cut -d" " -f5``` > file ```
 			file contains something like this 
 
 				<f122323>
@@ -33,7 +33,7 @@ Too_much:
 
 		Using replace option in text editor we can replace all the '<f' with 'disas f' and '>' with ''
 
-		```$ cat file | gdb ./rev | grep "cmp" | tr -s " " | cut -d" " -f 4 > file2```
+		``` $ cat file | gdb ./rev | grep "cmp" | tr -s " " | cut -d" " -f 4 > file2 ```
 			 file2 contains 
 			 		eax,0x46
 					eax,0x16
