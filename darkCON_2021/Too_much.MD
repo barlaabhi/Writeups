@@ -35,6 +35,7 @@ which we can remove them manually
 Using replace option in text editor we can replace all the `<f` with `disas f` and `>` with ''
 
 ```$ cat file | gdb ./rev | grep "cmp" | tr -s " " | cut -d" " -f 4 > file2```
+
 	file2 contains 
 	 	eax,0x46
 		eax,0x16
