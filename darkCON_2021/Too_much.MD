@@ -56,11 +56,11 @@ for i in array:
 	p = p[2:]    			# remove 0x
 
 	if len(p)!=2:
-		p = '0'+ p   		# if it is half byte add zero
+		p = '0'+ p   		# if it is half byte add 0
 
 	p = p[::-1]			# reverse it 
 	p = '0x'+ 			# add 0x at front 
-	flag+=chr(int(p,16))    	# convert to hex
+	flag+=chr(int(p,16))    	# convert to ascii
 
 print(flag) 
 ```
