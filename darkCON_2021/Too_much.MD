@@ -1,0 +1,77 @@
+Too_much:
+		
+		The input we give is the flag if our input string satisfies the constraints  
+		Every character of input string of length 200 is passed into a function(a total of 200 functions)
+		Inside each function the following operation happens,
+
+			k = each_char
+			left = BYTE (k<<4)
+			right = k>>4
+			some_value==(left+right)
+
+		what basically happens inside this function:
+			say, the input character when converted in hex is 0xQW 
+			so when we do a left shif by 4,it becomes 0xQW0 and taking a byte means left = 0xW0
+			and performing a right shift makes right = 0xQ
+			now when we add the final value will be 0xWQ
+			which is basically the reverse of the input char we gave to this function(in hex)
+
+		so now we have to find with what values our characters in input string are getting compared with
+		to do this, we perform the following operations
+
+		```$ echo "disas main" | gdb ./rev | grep "call" |  tr -s " " | cut -d" " -f5``` > file```
+			file contains something like this 
+
+				<f122323>
+				<f7093176>
+				<f2267326>
+				<f3113161>
+				<f6910364>............
+
+		This gives us names of all functions, we will additionally have read,puts,__stack_chk_fail at the end
+		which we can remove them manually
+
+		Using replace option in text editor we can replace all the '<f' with 'disas f' and '>' with ''
+
+		```$ cat file | gdb ./rev | grep "cmp" | tr -s " " | cut -d" " -f 4 > file2```
+			 file2 contains 
+			 		eax,0x46
+					eax,0x16
+					eax,0x27
+					eax,0xb6
+					eax,0x34...
+
+		using replace we can filter out the values and push them into an array 
+		the following code gives the flag
+
+		```
+		array = [70, 22, 39, 182, 52, 244, 228, 183, 67, 39, 51, 245, 151, 3, 87, 245, 39, 51, 67, 198, 198, 151, 245, 71, 134, 19, 230, 182, 19, 230, 147, 245, 71, 134, 67, 71, 245, 151, 3, 87, 245, 54, 67, 230, 245, 71, 39, 151, 245, 71, 134, 19, 83, 245, 214, 67, 230, 87, 67, 198, 198, 151, 243, 243, 243, 245, 244, 182, 245, 148, 245, 71, 134, 19, 230, 182, 245, 151, 3, 87, 245, 38, 51, 71, 71, 51, 39, 245, 87, 55, 51, 245, 55, 3, 214, 51, 245, 22, 87, 71, 3, 214, 67, 71, 51, 70, 245, 71, 3, 3, 198, 55, 245, 198, 19, 182, 51, 245, 67, 230, 147, 39, 245, 3, 39, 245, 165, 51, 245, 71, 3, 245, 214, 67, 182, 51, 245, 151, 3, 87, 39, 245, 198, 19, 102, 51, 245, 214, 87, 54, 134, 245, 86, 67, 55, 19, 51, 39, 226, 52, 3, 230, 118, 39, 67, 71, 55, 245, 102, 3, 39, 245, 55, 3, 198, 103, 19, 150, 230, 147, 245, 71, 134, 51, 245, 86, 67, 55, 151, 245, 54, 134, 67, 198, 198, 51, 230, 118, 51, 215]
+
+		flag= ""
+
+		for i in array:
+			p = hex(i)
+			p = p[2:]
+
+			if len(p)!=2:
+				p = '0'+ p
+
+			p = p[::-1]
+			p = '0x'+ p
+			flag+=chr(int(p,16))
+
+		print(flag) 
+		```
+
+
+
+
+
+
+
+
+
+
+
+
+
