@@ -10,6 +10,7 @@ Inside each function the following operation happens,
 	some_value==(left+right)
 
 what basically happens inside this function:
+
 	say, the input character when converted in hex is 0xQW 
 	so when we do a left shif by 4,it becomes 0xQW0 and taking a byte means left = 0xW0
 	and performing a right shift makes right = 0xQ
