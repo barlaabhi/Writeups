@@ -22,13 +22,12 @@ to do this, we perform the following operations
 
 ```$ echo "disas main" | gdb ./rev | grep "call" |  tr -s " " | cut -d" " -f5 > file```
 
-	file contains something like this 
-
-	<f122323>
-	<f7093176>
-	<f2267326>
-	<f3113161>
-	<f6910364>............
+	file contains 
+		<f122323>
+		<f7093176>
+		<f2267326>
+		<f3113161>
+		<f6910364>............
 
 This gives us names of all functions, we will additionally have read,puts,stack_chk_fail at the end
 which we can remove them manually 
@@ -59,9 +58,9 @@ for i in array:
 	if len(p)!=2:
 		p = '0'+ p   		# if it is half byte add zero
 
-	p = p[::-1]				# reverse it 
-	p = '0x'+ 				# add 0x at front 
-	flag+=chr(int(p,16))    # convert to hex
+	p = p[::-1]			# reverse it 
+	p = '0x'+ 			# add 0x at front 
+	flag+=chr(int(p,16))    	# convert to hex
 
 print(flag) 
 ```
