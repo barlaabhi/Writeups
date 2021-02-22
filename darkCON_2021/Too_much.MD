@@ -17,7 +17,7 @@ what basically happens inside this function:
 	now when we add the final value will be 0xWQ
 	which is basically the reverse of the input char we gave to this function(in hex)
 
-so now we have to find with what values our characters in input string are getting compared with
+so now we have to find with what values our characters in input string are getting compared with,
 to do this, we perform the following operations
 
 ```$ echo "disas main" | gdb ./rev | grep "call" |  tr -s " " | cut -d" " -f5 > file```
@@ -30,7 +30,7 @@ to do this, we perform the following operations
 		<f6910364>............
 
 This gives us names of all functions, we will additionally have read,puts,stack_chk_fail at the end
-which we can remove them manually 
+which can be removed manually 
 
 Using replace option in text editor we can replace all the `<f` with `disas f` and remove `>`
 
