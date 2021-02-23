@@ -9,15 +9,15 @@ Every character of input string of length 200 is passed into a function(a total 
 Inside each function the following operation happens,
 
 	k = each_char
-	left = BYTE (k<<4)
-	right = k>>4
+	left =  BYTE (k<<4)
+	right = BYTE (k>>4)
 	some_value==(left+right)
 
 what basically happens inside this function:
 
 	say, the input character when converted in hex is 0xQW 
 	so when we do a left shif by 4,it becomes 0xQW0 and taking a byte means left = 0xW0
-	and performing a right shift makes right = 0xQ
+	and performing a right shift makes right = 0xQ (which will always be half byte)
 	now when we add the final value will be (left+right) =  0xWQ
 	which is basically the reverse of the input char in hex we gave to this function
 
