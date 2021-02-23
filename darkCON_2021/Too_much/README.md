@@ -45,7 +45,7 @@ Using replace option in text editor we can replace all the `<` with `disas ` and
 		disas f3113161
 		disas f6910364............		
 
-```$ cat file | gdb ./rev | grep "cmp" | tr -s " " | cut -d" " -f 4 > file2```
+```$ cat file | gdb ./Too_much | grep "cmp" | tr -s " " | cut -d" " -f 4 > file2```
 
 	file2 contains 
 	 	eax,0x46
