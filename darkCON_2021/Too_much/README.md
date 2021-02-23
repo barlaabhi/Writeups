@@ -36,7 +36,7 @@ to do this, we perform the following operations
 This gives us names of all functions, we will additionally have read,puts,stack_chk_fail at the end
 which can be removed manually 
 
-Using replace option in text editor we can replace all the `<f` with `disas f` and remove `>`
+Using replace option in text editor we can replace all the `<` with `disas ` and remove `>`
 
 	file now looks like
 		disas f122323
