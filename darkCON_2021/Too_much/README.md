@@ -38,6 +38,13 @@ which can be removed manually
 
 Using replace option in text editor we can replace all the `<f` with `disas f` and remove `>`
 
+	file now looks like
+		disas f122323
+		disas f7093176
+		disas f2267326
+		disas f3113161
+		disas f6910364............		
+
 ```$ cat file | gdb ./rev | grep "cmp" | tr -s " " | cut -d" " -f 4 > file2```
 
 	file2 contains 
