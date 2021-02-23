@@ -18,8 +18,8 @@ what basically happens inside this function:
 	say, the input character when converted in hex is 0xQW 
 	so when we do a left shif by 4,it becomes 0xQW0 and taking a byte means left = 0xW0
 	and performing a right shift makes right = 0xQ
-	now when we add the final value will be 0xWQ
-	which is basically the reverse of the input char we gave to this function(in hex)
+	now when we add the final value will be (left+right) =  0xWQ
+	which is basically the reverse of the input char in hex we gave to this function
 
 so now we have to find with what values our characters in input string are getting compared with,
 to do this, we perform the following operations
