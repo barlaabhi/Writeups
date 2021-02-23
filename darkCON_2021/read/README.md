@@ -1,3 +1,7 @@
+challenge: READ
+
+file: [challenge_file](https://github.com/barlaabhi/Writeups/raw/main/darkCON_2021/read/read.pyc)
+
 **uncompyle6 gave .py file**
 
 ```
