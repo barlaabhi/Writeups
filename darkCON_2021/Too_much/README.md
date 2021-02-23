@@ -1,4 +1,8 @@
-Too_much:
+challenge: Too_much
+
+file: [challenge_file](https://github.com/barlaabhi/Writeups/raw/main/darkCON_2021/Too_much/Too_much)
+
+Solution:
 
 The input we give is the flag if our input string satisfies the constraints  
 Every character of input string of length 200 is passed into a function(a total of 200 functions)
