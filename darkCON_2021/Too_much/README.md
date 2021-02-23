@@ -47,7 +47,7 @@ Using replace option in text editor we can replace all the `<f` with `disas f` a
 		eax,0xb6
 		eax,0x34............
 
-using replace we can filter out the values by removing ```eax,``` and push them into an array,
+using replace option we can filter out the values by removing ```eax,``` and push them into an array,
 the following code gives the flag
 
 ```
@@ -63,7 +63,7 @@ for i in array:
 		p = '0'+ p   		# if it is half byte add 0
 
 	p = p[::-1]			# reverse it 
-	p = '0x'+ p			# add 0x at front 
+	p = '0x'+ p			# add 0x  
 	flag+=chr(int(p,16))    	# convert to ascii
 
 print(flag) 
